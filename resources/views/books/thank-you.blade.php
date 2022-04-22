@@ -12,12 +12,17 @@
 </head>
 <body>
 <div class="container-sm">
-    <h1>Thank you {{ $first_name }} {{ $last_name }} for reserving books!</h1>
-
+    <div class="jumbotron text-center">
+    <h1>Thank you, {{ $first_name }} {{ $last_name }} for reserving books!</h1>
     <ul class="list-unstyled">
-    <!-- 1. Display all the reserved books -->
-    </ul>
-
+    @foreach ($reserved_books as $book)
+    <li>
+    <p class="lead">
+    <strong>{{ $book['title'] }}</strong> by {{ $book['author'] }}, {{ $book['year_published'] }}
+    </li>
+    @endforeach
+    </ul>'
+  
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
